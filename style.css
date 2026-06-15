@@ -244,6 +244,17 @@ html {
 
 }
 
+/* Usuwamy domyślny niebieski wygląd linków także z tekstów wewnątrz kafelka */
+.portfolio-item h3,
+.portfolio-item p,
+.portfolio-item .overlay-content {
+
+    color: white;
+
+    text-decoration: none;
+
+}
+
 /* Zdjęcie w kafelku */
 
 .portfolio-item img {
@@ -283,6 +294,40 @@ html {
     font-size: 1.2rem;
 
     letter-spacing: 1px;
+
+}
+
+/* Zabezpieczenie: jeśli overlay-content przypadkiem nie trafi do portfolio-overlay,
+   i tak ustawiamy go jak nakładkę na zdjęciu, a nie jako niebieski link pod spodem. */
+.portfolio-item > .overlay-content {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    transition: 0.3s ease;
+
+}
+
+.portfolio-item:hover > .overlay-content {
+
+    opacity: 1;
 
 }
 
@@ -654,6 +699,25 @@ html {
     .overlay-content p {
         font-size: 0.7rem;
         letter-spacing: 1px;
+    }
+
+    /* Jeśli overlay-content jest bezpośrednio w kafelku, na telefonie też pokazujemy go na dole zdjęcia */
+    .portfolio-item > .overlay-content {
+
+        opacity: 1;
+
+        background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.15)
+        );
+
+        align-items: center;
+
+        justify-content: flex-end;
+
+        padding-bottom: 20px;
+
     }
 
     /* Na telefonie galerie na podstronach są w jednej kolumnie */
