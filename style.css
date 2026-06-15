@@ -11,6 +11,7 @@
 body {
 
     font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
 
 }
 
@@ -96,9 +97,10 @@ p {
 
 html {
 
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 
 }
+
 
 .navbar {
 
@@ -224,6 +226,116 @@ html {
 
 }
 
+/* Kafelek portfolio — cały obrazek jest linkiem */
+
+.portfolio-item {
+
+    display: block;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+/* Zdjęcie w kafelku */
+
+.portfolio-item img {
+
+    display: block;
+
+    width: 100%;
+
+}
+
+/* Ciemna nakładka z opisem */
+
+.portfolio-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.6);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    transition: 0.3s ease;
+
+    font-size: 1.2rem;
+
+    letter-spacing: 1px;
+
+}
+
+/* Po najechaniu pokazujemy opis */
+
+.portfolio-item:hover .portfolio-overlay {
+
+    opacity: 1;
+
+}
+
+/* Zawartość nakładki */
+
+.overlay-content {
+
+    transform: translateY(20px);
+
+    transition: 0.3s ease;
+
+}
+
+/* Animacja po najechaniu */
+
+.portfolio-item:hover .overlay-content {
+
+    transform: translateY(0);
+
+}
+
+/* Tytuł kategorii */
+
+.overlay-content h3 {
+
+    font-size: 1.6rem;
+
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
+
+}
+
+/* Tekst pod spodem */
+
+.overlay-content p {
+
+    font-size: 0.9rem;
+
+    letter-spacing: 2px;
+
+    margin: 0;
+
+}
+
 .about {
 
     background: #0b0b0b;
@@ -325,6 +437,58 @@ html {
 .lightbox.active {
 
     display: flex;
+
+}
+
+/* Strzałki w lightboxie — przyciski do zmiany zdjęć */
+.lightbox-prev,
+.lightbox-next {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 60px;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.15);
+
+    color: white;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+/* Efekt po najechaniu na strzałkę */
+.lightbox-prev:hover,
+.lightbox-next:hover {
+
+    background: rgba(255,255,255,0.35);
+
+}
+
+/* Lewa strzałka */
+.lightbox-prev {
+
+    left: 30px;
+
+}
+
+/* Prawa strzałka */
+.lightbox-next {
+
+    right: 30px;
 
 }
 
@@ -431,5 +595,134 @@ html {
 
     }
 
+    /* Mniejsze strzałki w lightboxie na telefonie */
+    .lightbox-prev,
+    .lightbox-next {
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 1.5rem;
+
+    }
+
+    .lightbox-prev {
+
+        left: 12px;
+
+    }
+
+    .lightbox-next {
+
+        right: 12px;
+
+    }
+
+    /* Na telefonach nie ma hovera, więc opis kategorii jest widoczny cały czas */
+    .portfolio-overlay {
+
+        opacity: 1;
+
+        background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.15)
+        );
+
+        align-items: flex-end;
+
+        padding-bottom: 20px;
+
+        font-size: 0.85rem;
+
+    }
+
+    /* Wyłączamy animację wysuwania tekstu na telefonie */
+    .overlay-content {
+
+        transform: translateY(0);
+
+    }
+
+    /* Mniejsze napisy na kafelkach portfolio na telefonie */
+    .overlay-content h3 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+    }
+
+    .overlay-content p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+    /* Na telefonie galerie na podstronach są w jednej kolumnie */
+    .gallery-page .gallery {
+
+        columns: 1;
+
+    }
+}
+
+.gallery-page {
+
+    background: #0a0a0a;
+
+    min-height: 100vh;
+
+    padding: 120px 8%;
+
+}
+
+.gallery-page h1 {
+
+    color: white;
+
+    margin-bottom: 10px;
+
+}
+
+.gallery-page p {
+
+    color: #bdbdbd;
+
+    margin-bottom: 50px;
+
+}
+
+.gallery-page .btn {
+
+    margin-bottom: 50px;
+
+    display: inline-block;
+
+}
+
+/* Galerie na podstronach — masonry layout, czyli zdjęcia zachowują swoje proporcje */
+.gallery-page .gallery {
+
+    display: block;
+
+    columns: 3 300px;
+
+    column-gap: 18px;
+
+}
+
+/* Zdjęcia na podstronach galerii nie są przycinane — pionowe zostają pionowe, poziome poziome */
+.gallery-page .gallery img {
+
+    width: 100%;
+
+    height: auto;
+
+    object-fit: unset;
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    break-inside: avoid;
+    border-radius: 14px;
 
 }
