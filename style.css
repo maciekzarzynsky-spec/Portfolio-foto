@@ -485,6 +485,37 @@ html {
 
 }
 
+.contact-details {
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-role {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #d6d6d6;
+    margin: 0 0 12px;
+}
+
+.contact-details p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.contact-details a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+
 /* Strzałki w lightboxie — przyciski do zmiany zdjęć */
 .lightbox-prev,
 .lightbox-next {
