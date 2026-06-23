@@ -486,7 +486,7 @@ html {
 }
 
 .contact-details {
-    margin-top: 45px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -506,9 +506,13 @@ html {
     line-height: 1.4;
 }
 
-.contact-details a {
-    color: #f2f2f2;
-    text-decoration: none;
+.contact-details a,
+.contact-details a:visited,
+.contact-details a:active,
+.contact-details a[href^="tel"],
+.contact-details a[href^="mailto"] {
+    color: #f2f2f2 !important;
+    text-decoration: none !important;
 }
 
 .contact-details a:hover {
