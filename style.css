@@ -825,3 +825,62 @@ html {
     border-radius: 14px;
 
 }
+/* Sekcja moje zlecenia */
+.orders-section {
+    min-height: 100vh;
+    padding: 140px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.orders-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.orders-description {
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.orders-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+}
+
+.orders-card h2 {
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.orders-card p {
+    color: #ccc;
+    line-height: 1.7;
+}
+.orders-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.orders-card li {
+    color:#fff;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.orders-card li::before {
+    content: "✓ ";
+    margin-right: 8px;
+}
